@@ -109,6 +109,10 @@
     // Handle the chat form submission
     document.addEventListener('DOMContentLoaded', function() {
         const chatForm = document.getElementById('chat-form');
+        
+        // Only proceed if we're on the chat page with a form
+        if (!chatForm) return;
+        
         const userInput = document.getElementById('user-input');
         const chatContainer = document.getElementById('chat-container');
         const chatLoader = document.getElementById('chat-loader');
