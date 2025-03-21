@@ -45,7 +45,7 @@ def get_treatment_recommendation(disease_name):
         """
         
         # Initialize the Gemini model
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-1.5-pro')
         
         # Generate the response
         response = model.generate_content(prompt)
@@ -101,7 +101,7 @@ def initialize_chat(session_id):
             return False
             
         # Initialize the Gemini model for chat
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-1.5-pro')
         
         # Initialize chat session with system prompt (Gemini doesn't support system messages in the same way)
         # So we'll start with an initial user/model exchange to set context
