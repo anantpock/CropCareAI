@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}Treatment Recommendations{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-10 mx-auto">
+        {% if disease_result %}
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Plant Disease Details</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img src="{{ url_for('static', filename=disease_result.image_path.replace('static/', '')) }}" 
+                                 class="img-fluid rounded" style="max-height: 200px;" alt="Plant Image">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 id="disease-name">{{ disease_result.prediction }}</h5>
+                            <p><strong>Confidence:</strong> 
+                                <span class="badge {% if disease_result.confidence > 0.8 %}bg-success{% elif disease_result.confidence > 0.6 %}bg-warning text-dark{% else %}bg-danger{% endif %}">
+                                    {{ (disease_result.confidence * 100) | round(2) }}%
+                                </span>
+                            </p>
+                            <p><strong>Detected:</strong> {{ disease_result.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
+                            <p>Ask our AI assistant for treatment recommendations and prevention tips.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">Treatment Recommendations</h4>
+                </div>
+                <div class="card-body">
+                    <div id="chat-container" class="chat-container">
+                        <div class="chat-message bot-message">
+                            Hello! I can provide treatment recommendations for plants affected by {{ disease_result.prediction.replace('_', ' ') }}. What would you like to know?
+                        </div>
+                    </div>
+                    
+                    <div id="chat-loader" class="loader d-none"></div>
+                    
+                    <form id="chat-form">
+                        <div class="input-group">
+                            <input type="text" id="user-input" class="form-control" placeholder="Ask about treatments, symptoms, or prevention..." required>
+                            <button type="submit" id="send-button" class="btn btn-success">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-3">
+                        <p class="text-muted small">Suggested questions:</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button class="btn btn-sm btn-outline-secondary suggested-question">What are the symptoms?</button>
+                            <button class="btn btn-sm btn-outline-secondary suggested-question">How do I treat it?</button>
+                            <button class="btn btn-sm btn-outline-secondary suggested-question">How to prevent it?</button>
+                            <button class="btn btn-sm btn-outline-secondary suggested-question">Is it contagious?</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="card shadow-sm">
+                <div class="card-body text-center py-5">
+                    <i class="fas fa-exclamation-circle fa-3x mb-3 text-warning"></i>
+                    <h4>No Disease Selected</h4>
+                    <p class="text-muted">Please select a disease from your history or detect a new plant disease.</p>
+                    <div class="mt-4">
+                        <a href="{{ url_for('index') }}" class="btn btn-primary me-2">
+                            <i class="fas fa-upload me-2"></i>Detect New Disease
+                        </a>
+                        <a href="{{ url_for('history') }}" class="btn btn-secondary">
+                            <i class="fas fa-history me-2"></i>View History
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Handle suggested questions
+    document.addEventListener('DOMContentLoaded', function() {
+        const suggestedQuestions = document.querySelectorAll('.suggested-question');
+        const userInput = document.getElementById('user-input');
+        
+        suggestedQuestions.forEach(button => {
+            button.addEventListener('click', function() {
+                userInput.value = this.textContent;
+                // Focus on the input
+                userInput.focus();
+            });
+        });
+    });
+</script>
+{% endblock %}
