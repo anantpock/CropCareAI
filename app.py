@@ -47,7 +47,7 @@ with app.app_context():
 
 # Import services after app creation
 from plant_disease_detector import detect_disease
-from gemini_service import get_treatment_recommendation
+from gemini_service import get_treatment_recommendation, chat_with_gemini, initialize_chat
 
 @app.route('/')
 def index():
@@ -157,6 +157,39 @@ def get_result(result_id):
         'confidence': result.confidence,
         'timestamp': result.timestamp.isoformat()
     }), 200
+
+@app.route('/api/chat', methods=['POST'])
+def handle_chat():
+    data = request.json
+    
+    if not data or 'message' not in data:
+        return jsonify({'error': 'Message is required'}), 400
+    
+    # Get user message and session ID
+    user_message = data['message']
+    
+    # Get or create a session ID for this chat
+    if 'session_id' not in session:
+        session['session_id'] = str(uuid.uuid4())
+    
+    session_id = session['session_id']
+    
+    # Also allow overriding the session ID from the request
+    if 'session_id' in data:
+        session_id = data['session_id']
+    
+    try:
+        # Get response from Gemini
+        response = chat_with_gemini(session_id, user_message)
+        
+        return jsonify({
+            'response': response,
+            'session_id': session_id
+        }), 200
+    
+    except Exception as e:
+        logger.error(f"Error in chat: {str(e)}")
+        return jsonify({'error': str(e)}), 500
 
 # Error handlers
 @app.errorhandler(404)
