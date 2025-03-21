@@ -103,22 +103,24 @@ def initialize_chat(session_id):
         # Initialize the Gemini model for chat
         model = genai.GenerativeModel('gemini-pro')
         
-        # Initialize chat session with system prompt
-        chat = model.start_chat(history=[
-            {
-                "role": "system",
-                "content": """You are PlantCare AI, a helpful agriculture assistant that specializes in plant disease diagnosis and treatment. 
-                Your goal is to assist farmers, gardeners, and agricultural professionals with plant health issues.
-                
-                When responding to questions:
-                1. Provide accurate, actionable advice for plant care
-                2. Be concise but thorough in your explanations
-                3. Remember that prevention is as important as treatment
-                4. Consider both organic and conventional treatment options
-                
-                Focus on being helpful, educational, and practical in your responses."""
-            }
-        ])
+        # Initialize chat session with system prompt (Gemini doesn't support system messages in the same way)
+        # So we'll start with an initial user/model exchange to set context
+        chat = model.start_chat()
+        
+        # Prime the chat with initial context
+        system_prompt = """You are PlantCare AI, a helpful agriculture assistant that specializes in plant disease diagnosis and treatment. 
+        Your goal is to assist farmers, gardeners, and agricultural professionals with plant health issues.
+        
+        When responding to questions:
+        1. Provide accurate, actionable advice for plant care
+        2. Be concise but thorough in your explanations
+        3. Remember that prevention is as important as treatment
+        4. Consider both organic and conventional treatment options
+        
+        Focus on being helpful, educational, and practical in your responses."""
+        
+        # Send a hidden "system" message to set the context
+        response = chat.send_message("You are a plant disease expert assistant. Please acknowledge your role.")
         
         # Store the chat session
         chat_history[session_id] = chat

@@ -7,7 +7,7 @@
     <div class="col-lg-10 mx-auto">
         {% if disease_result %}
             <div class="card shadow-sm mb-4">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-dark text-white">
                     <h4 class="mb-0">Plant Disease Details</h4>
                 </div>
                 <div class="card-body">
@@ -31,7 +31,7 @@
             </div>
             
             <div class="card shadow-sm">
-                <div class="card-header bg-success text-white">
+                <div class="card-header bg-secondary text-white">
                     <h4 class="mb-0">Treatment Recommendations</h4>
                 </div>
                 <div class="card-body">
@@ -222,9 +222,10 @@
         overflow-y: auto;
         margin-bottom: 20px;
         padding: 15px;
-        border: 1px solid #e9ecef;
+        border: 1px solid #2c3035;
         border-radius: 0.25rem;
-        background-color: #f8f9fa;
+        background-color: #212529;
+        color: #e9ecef;
     }
     
     .chat-message {
@@ -235,22 +236,23 @@
     }
     
     .user-message {
-        background-color: #d2f4ea;
+        background-color: #375a7f;
         margin-left: auto;
         border-top-right-radius: 0;
-        color: #0a2e44;
+        color: #ffffff;
     }
     
     .bot-message {
-        background-color: #e9ecef;
+        background-color: #3a3f44;
         margin-right: auto;
         border-top-left-radius: 0;
+        color: #e9ecef;
     }
     
     .loader {
-        border: 3px solid #f3f3f3;
+        border: 3px solid #3a3f44;
         border-radius: 50%;
-        border-top: 3px solid #3498db;
+        border-top: 3px solid #5bc0de;
         width: 24px;
         height: 24px;
         animation: spin 1s linear infinite;
@@ -260,6 +262,26 @@
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
+    }
+    
+    #user-input {
+        background-color: #343a40;
+        color: #e9ecef;
+        border-color: #444;
+    }
+    
+    #user-input::placeholder {
+        color: #868e96;
+    }
+    
+    .card {
+        background-color: #2c3035;
+        color: #e9ecef;
+    }
+    
+    .card-header {
+        background-color: #343a40;
+        border-color: #444;
     }
 </style>
 {% endblock %}
