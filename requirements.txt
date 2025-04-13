@@ -7,3 +7,4 @@ opencv-python
 numpy
 requests
 python-dotenv
+pip freeze > requirements.txt
