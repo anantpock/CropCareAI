@@ -18,7 +18,6 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 @main.before_app_request
-
 def setup():
     upload_folder = os.environ.get("UPLOAD_FOLDER", "static/uploads")
     os.makedirs(upload_folder, exist_ok=True)
@@ -121,11 +120,13 @@ def handle_chat():
         return jsonify({'error': 'Message is required'}), 400
 
     user_message = data['message']
+    disease_name = data.get('disease', 'Tomato Disease')
     session_id = data.get('session_id') or session.get('session_id') or str(uuid.uuid4())
     session['session_id'] = session_id
 
     try:
-        response = chat_with_gemini(session_id, user_message)
+        prompt = f"You are a plant pathologist AI. The user is asking a question about '{disease_name}'. Answer clearly and concisely: {user_message}"
+        response = chat_with_gemini(session_id, prompt)
         return jsonify({'response': response, 'session_id': session_id}), 200
     except Exception as e:
         logger.error(f"Chat error: {str(e)}")

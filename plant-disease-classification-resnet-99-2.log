@@ -1,0 +1,114 @@
+[{"stream_name":"stdout","time":10.988314555,"data":"Collecting torchsummary\r\n"}
+,{"stream_name":"stdout","time":11.089977217,"data":"  Downloading torchsummary-1.5.1-py3-none-any.whl (2.8 kB)\r\n"}
+,{"stream_name":"stdout","time":16.929632703,"data":"Installing collected packages: torchsummary\r\n"}
+,{"stream_name":"stdout","time":17.133158838,"data":"Successfully installed torchsummary-1.5.1\r\n"}
+,{"stream_name":"stdout","time":20.244557145,"data":"['Tomato___Late_blight', 'Tomato___healthy', 'Grape___healthy', 'Orange___Haunglongbing_(Citrus_greening)', 'Soybean___healthy', 'Squash___Powdery_mildew', 'Potato___healthy', 'Corn_(maize)___Northern_Leaf_Blight', 'Tomato___Early_blight', 'Tomato___Septoria_leaf_spot', 'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot', 'Strawberry___Leaf_scorch', 'Peach___healthy', 'Apple___Apple_scab', 'Tomato___Tomato_Yellow_Leaf_Curl_Virus', 'Tomato___Bacterial_spot', 'Apple___Black_rot', 'Blueberry___healthy', 'Cherry_(including_sour)___Powdery_mildew', 'Peach___Bacterial_spot', 'Apple___Cedar_apple_rust', 'Tomato___Target_Spot', 'Pepper,_bell___healthy', 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)', 'Potato___Late_blight', 'Tomato___Tomato_mosaic_virus', 'Strawberry___healthy', 'Apple___healthy', 'Grape___Black_rot', 'Potato___Early_blight', 'Cherry_(including_sour)___healthy', 'Corn_(maize)___Common_rust_', 'Grape___Esca_(Black_Measles)', 'Raspberry___healthy', 'Tomato___Leaf_Mold', 'Tomato___Spider_mites Two-spotted_spider_mite', 'Pepper,_bell___Bacterial_spot', 'Corn_(maize)___healthy']\n"}
+,{"stream_name":"stdout","time":20.373283988,"data":"Total disease classes are: 38\n"}
+,{"stream_name":"stdout","time":20.766706288,"data":"Unique Plants are: \n"}
+,{"stream_name":"stdout","time":20.766896691,"data":"['Tomato', 'Grape', 'Orange', 'Soybean', 'Squash', 'Potato', 'Corn_(maize)', 'Strawberry', 'Peach', 'Apple', 'Blueberry', 'Cherry_(including_sour)', 'Pepper,_bell', 'Raspberry']\n"}
+,{"stream_name":"stdout","time":20.897375032,"data":"Number of plants: 14\n"}
+,{"stream_name":"stdout","time":21.02853201,"data":"Number of diseases: 26\n"}
+,{"stream_name":"stdout","time":28.868728276,"data":"There are 70295 images for training\n"}
+,{"stream_name":"stdout","time":107.459849075,"data":"torch.Size([3, 256, 256]) 0\n"}
+,{"stream_name":"stdout","time":108.313464983,"data":"Label :Apple___Apple_scab(0)\n"}
+,{"stream_name":"stdout","time":108.644178282,"data":"Label :Tomato___healthy(37)\n"}
+,{"stream_name":"stdout","time":109.023745802,"data":"Label :Peach___Bacterial_spot(16)\n"}
+,{"stream_name":"stdout","time":125.807117781,"data":"----------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":125.807164826,"data":"        Layer (type)               Output Shape         Param #\n"}
+,{"stream_name":"stdout","time":125.807191946,"data":"================================================================\n"}
+,{"stream_name":"stdout","time":125.80719841,"data":"            Conv2d-1         [-1, 64, 256, 256]           1,792\n"}
+,{"stream_name":"stdout","time":125.807207412,"data":"       BatchNorm2d-2         [-1, 64, 256, 256]             128\n"}
+,{"stream_name":"stdout","time":125.807218604,"data":"              ReLU-3         [-1, 64, 256, 256]               0\n"}
+,{"stream_name":"stdout","time":125.807226368,"data":"            Conv2d-4        [-1, 128, 256, 256]          73,856\n"}
+,{"stream_name":"stdout","time":125.807232373,"data":"       BatchNorm2d-5        [-1, 128, 256, 256]             256\n"}
+,{"stream_name":"stdout","time":125.807237674,"data":"              ReLU-6        [-1, 128, 256, 256]               0\n"}
+,{"stream_name":"stdout","time":125.807243007,"data":"         MaxPool2d-7          [-1, 128, 64, 64]               0\n"}
+,{"stream_name":"stdout","time":125.807249184,"data":"            Conv2d-8          [-1, 128, 64, 64]         147,584\n"}
+,{"stream_name":"stdout","time":125.807266713,"data":"       BatchNorm2d-9          [-1, 128, 64, 64]             256\n"}
+,{"stream_name":"stdout","time":125.807271946,"data":"             ReLU-10          [-1, 128, 64, 64]               0\n"}
+,{"stream_name":"stdout","time":125.807276524,"data":"           Conv2d-11          [-1, 128, 64, 64]         147,584\n"}
+,{"stream_name":"stdout","time":125.807281348,"data":"      BatchNorm2d-12          [-1, 128, 64, 64]             256\n"}
+,{"stream_name":"stdout","time":125.807286402,"data":"             ReLU-13          [-1, 128, 64, 64]               0\n"}
+,{"stream_name":"stdout","time":125.807293307,"data":"           Conv2d-14          [-1, 256, 64, 64]         295,168\n"}
+,{"stream_name":"stdout","time":125.807303884,"data":"      BatchNorm2d-15          [-1, 256, 64, 64]             512\n"}
+,{"stream_name":"stdout","time":125.807311352,"data":"             ReLU-16          [-1, 256, 64, 64]               0\n"}
+,{"stream_name":"stdout","time":125.807316712,"data":"        MaxPool2d-17          [-1, 256, 16, 16]               0\n"}
+,{"stream_name":"stdout","time":125.807321616,"data":"           Conv2d-18          [-1, 512, 16, 16]       1,180,160\n"}
+,{"stream_name":"stdout","time":125.80732622,"data":"      BatchNorm2d-19          [-1, 512, 16, 16]           1,024\n"}
+,{"stream_name":"stdout","time":125.807330978,"data":"             ReLU-20          [-1, 512, 16, 16]               0\n"}
+,{"stream_name":"stdout","time":125.807335908,"data":"        MaxPool2d-21            [-1, 512, 4, 4]               0\n"}
+,{"stream_name":"stdout","time":125.807341236,"data":"           Conv2d-22            [-1, 512, 4, 4]       2,359,808\n"}
+,{"stream_name":"stdout","time":125.807345816,"data":"      BatchNorm2d-23            [-1, 512, 4, 4]           1,024\n"}
+,{"stream_name":"stdout","time":125.807361892,"data":"             ReLU-24            [-1, 512, 4, 4]               0\n"}
+,{"stream_name":"stdout","time":125.807366387,"data":"           Conv2d-25            [-1, 512, 4, 4]       2,359,808\n"}
+,{"stream_name":"stdout","time":125.807370918,"data":"      BatchNorm2d-26            [-1, 512, 4, 4]           1,024\n"}
+,{"stream_name":"stdout","time":125.80737555,"data":"             ReLU-27            [-1, 512, 4, 4]               0\n"}
+,{"stream_name":"stdout","time":125.807380448,"data":"        MaxPool2d-28            [-1, 512, 1, 1]               0\n"}
+,{"stream_name":"stdout","time":125.807389754,"data":"          Flatten-29                  [-1, 512]               0\n"}
+,{"stream_name":"stdout","time":125.80739944,"data":"           Linear-30                   [-1, 38]          19,494\n"}
+,{"stream_name":"stdout","time":125.807431375,"data":"================================================================\n"}
+,{"stream_name":"stdout","time":125.807436971,"data":"Total params: 6,589,734\n"}
+,{"stream_name":"stdout","time":125.807441512,"data":"Trainable params: 6,589,734\n"}
+,{"stream_name":"stdout","time":125.807446113,"data":"Non-trainable params: 0\n"}
+,{"stream_name":"stdout","time":125.807450783,"data":"----------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":125.807489156,"data":"Input size (MB): 0.75\n"}
+,{"stream_name":"stdout","time":125.807503334,"data":"Forward/backward pass size (MB): 343.95\n"}
+,{"stream_name":"stdout","time":125.807511467,"data":"Params size (MB): 25.14\n"}
+,{"stream_name":"stdout","time":125.807516995,"data":"Estimated Total Size (MB): 369.83\n"}
+,{"stream_name":"stdout","time":125.807522464,"data":"----------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":125.80753792,"data":"None\n"}
+,{"stream_name":"stdout","time":220.529380515,"data":"CPU times: user 44 s, sys: 3.28 s, total: 47.3 s\n"}
+,{"stream_name":"stdout","time":220.529426068,"data":"Wall time: 1min 32s\n"}
+,{"stream_name":"stdout","time":819.095134937,"data":"Epoch [0], last_lr: 0.00812, train_loss: 0.7466, val_loss: 0.5865, val_acc: 0.8319\n"}
+,{"stream_name":"stdout","time":1416.02085095,"data":"Epoch [1], last_lr: 0.00000, train_loss: 0.1248, val_loss: 0.0269, val_acc: 0.9923\n"}
+,{"stream_name":"stdout","time":1416.020909377,"data":"CPU times: user 11min 16s, sys: 7min 13s, total: 18min 30s\n"}
+,{"stream_name":"stdout","time":1416.02091809,"data":"Wall time: 19min 53s\n"}
+,{"stream_name":"stdout","time":1422.358085859,"data":"Label: AppleCedarRust1.JPG , Predicted: Apple___Cedar_apple_rust\n"}
+,{"stream_name":"stdout","time":1422.916144553,"data":"Label: AppleCedarRust1.JPG , Predicted: Apple___Cedar_apple_rust\n"}
+,{"stream_name":"stdout","time":1422.916195069,"data":"Label: AppleCedarRust2.JPG , Predicted: Apple___Cedar_apple_rust\n"}
+,{"stream_name":"stdout","time":1422.916206027,"data":"Label: AppleCedarRust3.JPG , Predicted: Apple___Cedar_apple_rust\n"}
+,{"stream_name":"stdout","time":1422.916214706,"data":"Label: AppleCedarRust4.JPG , Predicted: Apple___Cedar_apple_rust\n"}
+,{"stream_name":"stdout","time":1422.916237874,"data":"Label: AppleScab1.JPG , Predicted: Apple___Apple_scab\n"}
+,{"stream_name":"stdout","time":1422.916246073,"data":"Label: AppleScab2.JPG , Predicted: Apple___Apple_scab\n"}
+,{"stream_name":"stdout","time":1422.916252907,"data":"Label: AppleScab3.JPG , Predicted: Apple___Apple_scab\n"}
+,{"stream_name":"stdout","time":1422.916259841,"data":"Label: CornCommonRust1.JPG , Predicted: Corn_(maize)___Common_rust_\n"}
+,{"stream_name":"stdout","time":1422.916266983,"data":"Label: CornCommonRust2.JPG , Predicted: Corn_(maize)___Common_rust_\n"}
+,{"stream_name":"stdout","time":1422.916275035,"data":"Label: CornCommonRust3.JPG , Predicted: Corn_(maize)___Common_rust_\n"}
+,{"stream_name":"stdout","time":1422.916282665,"data":"Label: PotatoEarlyBlight1.JPG , Predicted: Potato___Early_blight\n"}
+,{"stream_name":"stdout","time":1422.916290052,"data":"Label: PotatoEarlyBlight2.JPG , Predicted: Potato___Early_blight\n"}
+,{"stream_name":"stdout","time":1422.916300498,"data":"Label: PotatoEarlyBlight3.JPG , Predicted: Potato___Early_blight\n"}
+,{"stream_name":"stdout","time":1422.916311017,"data":"Label: PotatoEarlyBlight4.JPG , Predicted: Potato___Early_blight\n"}
+,{"stream_name":"stdout","time":1422.916317759,"data":"Label: PotatoEarlyBlight5.JPG , Predicted: Potato___Early_blight\n"}
+,{"stream_name":"stdout","time":1422.91632437,"data":"Label: PotatoHealthy1.JPG , Predicted: Potato___healthy\n"}
+,{"stream_name":"stdout","time":1423.129221437,"data":"Label: PotatoHealthy2.JPG , Predicted: Potato___healthy\n"}
+,{"stream_name":"stdout","time":1423.129274161,"data":"Label: TomatoEarlyBlight1.JPG , Predicted: Tomato___Early_blight\n"}
+,{"stream_name":"stdout","time":1423.129317853,"data":"Label: TomatoEarlyBlight2.JPG , Predicted: Tomato___Early_blight\n"}
+,{"stream_name":"stdout","time":1423.129327525,"data":"Label: TomatoEarlyBlight3.JPG , Predicted: Tomato___Early_blight\n"}
+,{"stream_name":"stdout","time":1423.129333876,"data":"Label: TomatoEarlyBlight4.JPG , Predicted: Tomato___Early_blight\n"}
+,{"stream_name":"stdout","time":1423.129340035,"data":"Label: TomatoEarlyBlight5.JPG , Predicted: Tomato___Early_blight\n"}
+,{"stream_name":"stdout","time":1423.129345365,"data":"Label: TomatoEarlyBlight6.JPG , Predicted: Tomato___Early_blight\n"}
+,{"stream_name":"stdout","time":1423.129350851,"data":"Label: TomatoHealthy1.JPG , Predicted: Tomato___healthy\n"}
+,{"stream_name":"stdout","time":1423.12938725,"data":"Label: TomatoHealthy2.JPG , Predicted: Tomato___healthy\n"}
+,{"stream_name":"stdout","time":1423.129393541,"data":"Label: TomatoHealthy3.JPG , Predicted: Tomato___healthy\n"}
+,{"stream_name":"stdout","time":1423.129410266,"data":"Label: TomatoHealthy4.JPG , Predicted: Tomato___healthy\n"}
+,{"stream_name":"stdout","time":1423.129415214,"data":"Label: TomatoYellowCurlVirus1.JPG , Predicted: Tomato___Tomato_Yellow_Leaf_Curl_Virus\n"}
+,{"stream_name":"stdout","time":1423.129420398,"data":"Label: TomatoYellowCurlVirus2.JPG , Predicted: Tomato___Tomato_Yellow_Leaf_Curl_Virus\n"}
+,{"stream_name":"stdout","time":1423.12942545,"data":"Label: TomatoYellowCurlVirus3.JPG , Predicted: Tomato___Tomato_Yellow_Leaf_Curl_Virus\n"}
+,{"stream_name":"stdout","time":1423.129430523,"data":"Label: TomatoYellowCurlVirus4.JPG , Predicted: Tomato___Tomato_Yellow_Leaf_Curl_Virus\n"}
+,{"stream_name":"stdout","time":1423.145529543,"data":"Label: TomatoYellowCurlVirus5.JPG , Predicted: Tomato___Tomato_Yellow_Leaf_Curl_Virus\n"}
+,{"stream_name":"stdout","time":1423.145555835,"data":"Label: TomatoYellowCurlVirus6.JPG , Predicted: Tomato___Tomato_Yellow_Leaf_Curl_Virus\n"}
+,{"stream_name":"stderr","time":1429.313127444,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1430.293888725,"data":"[NbConvertApp] Writing 4229990 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1430.937511895,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1432.817409418,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":1432.818525256,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1432.819620599,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1432.820545037,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1432.821534231,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1432.822419592,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1432.825972923,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1432.826837776,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1432.827699839,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1432.828497309,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1432.829319355,"data":"[NbConvertApp] Writing 403665 bytes to __results__.html\n"}
+]
