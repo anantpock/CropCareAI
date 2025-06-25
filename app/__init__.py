@@ -22,7 +22,7 @@ def create_app():
     db.init_app(app)
     CORS(app)
 
-    # Import routes and register blueprint after app creation
+  
     from app.routes import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
