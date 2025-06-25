@@ -7,7 +7,7 @@ import io
 from dotenv import load_dotenv
 load_dotenv()
 
-# Configure logging
+
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
@@ -52,7 +52,7 @@ def classify_disease_with_image(image_path):
         response = model.generate_content([prompt, image])
         prediction = response.text.strip()
 
-        return prediction, 0.95  # Gemini doesn't return confidence, so we assign a default
+        return prediction, 0.95  
 
     except Exception as e:
         logger.error(f"Gemini Vision classification error: {str(e)}")
